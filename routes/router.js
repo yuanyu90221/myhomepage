@@ -27,6 +27,13 @@ module.exports = function(app){
 		res.render('hello',{"user": req.params.who});
 	});
 
+	app.post('/logout',function(req, res){
+		console.log(req.body);
+		console.log(req.body.username + ' logoout success!');
+
+		res.render('login');
+	});
+
 	app.get('/customer', function(req, res){
 		res.send('customer page');
 	});

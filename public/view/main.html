@@ -11,7 +11,7 @@
 	<title>Home Page</title>
 	<script src="js/lib/jquery/jquery-3.1.0.min.js"></script>
 	<script src="js/lib/bootstrap/bootstrap.min.js"></script>
-	<!-- <script src="js/specific/main.js"></script> -->
+	<script src="js/specific/main.js"></script>
 	<link href="css/font-awesome.min.css" rel="stylesheet" />
 <!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" /> -->
 
@@ -39,7 +39,7 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li id="userEdit_nav" th:inline="text"><a href="#"><span class="glyphicon glyphicon-user"></span>&#x20;{{username}}</a></li>
-						<li id="logout_nav"><a href="@{/logout}"><span class="glyphicon glyphicon-log-in"></span>&#x20;Logout</a></li>
+						<li id="logout_nav"><a href="/" onclick="doLogout()"><span class="glyphicon glyphicon-log-in"></span>&#x20;Logout</a></li>
 					</ul>
 				</div>
 			</div>
