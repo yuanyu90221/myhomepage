@@ -7,7 +7,13 @@ module.exports = function(app){
 	app.get('/', function(req, res){
 		// req.params.who
 		//res.send('home page');
-		res.render('login');
+		if(res.session){
+			console.log(res.session.username);
+			res.render('main',{'username':res.session.username});
+		}
+		else{
+			res.render('login');
+		}
 	});
 	//帶入params.who
 	app.get('/greeting/:who', function(req, res){
@@ -17,6 +23,9 @@ module.exports = function(app){
 
 	app.post('/greeting', function(req, res){
 		console.log(req.body.username);
+		console.log(req);
+		//req.session.username = req.body.username;
+		//console.log(req.session.username);
 		res.render('main',{'username':req.body.username});
 
 	});
@@ -30,7 +39,7 @@ module.exports = function(app){
 	app.post('/logout',function(req, res){
 		console.log(req.body);
 		console.log(req.body.username + ' logoout success!');
-
+        //res.session.destroy();
 		res.render('login');
 	});
 
