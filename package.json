@@ -19,5 +19,14 @@
     "express-session": "^1.14.1",
     "hbs": "^4.0.0",
     "serve-favicon": "^2.3.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuanyu90221/myhomepage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yuanyu90221/myhomepage/issues"
+  },
+  "homepage": "https://github.com/yuanyu90221/myhomepage#readme"
 }
