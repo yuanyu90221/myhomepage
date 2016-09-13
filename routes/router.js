@@ -5,11 +5,12 @@ module.exports = function(app){
 
 	var middleware = require('../middleware/middleware')(app);
 	app.get('/', function(req, res){
-		// req.params.who
-		//res.send('home page');
-		if(res.session){
-			console.log(res.session.username);
-			res.render('main',{'username':res.session.username});
+        //印出session value
+		console.log('current session: ',req.session);
+		//藉由
+		if(req.session.username){
+			console.log(req.session.username);
+			res.render('main',{'username':req.session.username});
 		}
 		else{
 			res.render('login');
@@ -22,8 +23,10 @@ module.exports = function(app){
 	});
 
 	app.post('/greeting', function(req, res){
-		console.log(req.body.username);
-		res.render('main',{'username':req.body.username});
+		console.log('username : ',req.body.username);
+		req.session.username = req.body.username;
+		// 重新導入/藉由session來判斷是否有登入
+		res.redirect('/');
 	});
 
 
@@ -32,9 +35,11 @@ module.exports = function(app){
 	});
 
 	app.post('/logout',function(req, res){
-		console.log(req.body);
 		console.log(req.body.username + ' logoout success!');
-		res.render('login');
+		// 刪除 cookie
+		req.session.destroy();
+		// 重新導入/藉由session來判斷是否有登入
+		res.redirect('/');
 	});
 
 	app.get('/customer', function(req, res){

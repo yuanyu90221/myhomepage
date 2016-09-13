@@ -17,6 +17,8 @@ function doPostForm(){
 			console.log($.parseHTML(data));
 			// 把整頁更換掉
 			 $('html').html($.parseHTML(data));
+			 // reload js
+			 location.reload();
 			console.log("login success");
 			alert('login success');
 		},

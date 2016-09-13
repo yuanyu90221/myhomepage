@@ -1,5 +1,6 @@
 // specific/main.js
 $(document).ready(function(){
+	console.log("main page loaded");
 	$("#logout_nav").click(function(){
 		doLogout();
 	});
@@ -18,7 +19,9 @@ function doLogout(){
 
 			console.log($.parseHTML(data));
 			// 把整頁更換掉
-			 $('html').html($.parseHTML(data));
+			$('html').html($.parseHTML(data));
+			// reload js
+			location.reload();
 			console.log("logout success");
 			alert('logout success');
 		},
