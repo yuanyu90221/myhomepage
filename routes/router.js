@@ -23,23 +23,17 @@ module.exports = function(app){
 
 	app.post('/greeting', function(req, res){
 		console.log(req.body.username);
-		console.log(req);
-		//req.session.username = req.body.username;
-		//console.log(req.session.username);
 		res.render('main',{'username':req.body.username});
-
 	});
 
 
 	app.post('/greeting/:who', function(req, res){
-		// req.params.who帶入hello.html
 		res.render('hello',{"user": req.params.who});
 	});
 
 	app.post('/logout',function(req, res){
 		console.log(req.body);
 		console.log(req.body.username + ' logoout success!');
-        //res.session.destroy();
 		res.render('login');
 	});
 
