@@ -1,5 +1,5 @@
 // routes/router.js
-
+var loginInfo = require('../modules/mondbUtil/loginInfo');
 
 module.exports = function(app){
 
@@ -48,6 +48,15 @@ module.exports = function(app){
 
 	app.get('/admin', function(req, res){
 		res.send('admin page');
+	});
+
+	app.get('/getloginInfo', function(req, res){
+		loginInfo.queryAll(function(docs,db){
+			db.close();
+			console.log(docs);
+			res.json(docs);
+		});
+
 	});
 	app.all('*', function(req, res){
  		res.send('404 not found');
