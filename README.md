@@ -4,4 +4,5 @@
 	<li> add session control</li>
 	<li> bootstrap ui</li>
 	<li> location reload when content change</li>
+	<li> mongodb query added</li>
 </ul>
