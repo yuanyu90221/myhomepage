@@ -25,6 +25,9 @@ app.set('views', path.join(__dirname, '/public/view'));
 app.set('view engine','html');
 app.engine('html', hbs.__express);
 router = require('./routes/router')(app);
-app.set('port', (process.env.PORT || 5000));
-http.createServer(app).listen(5000);
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+//app.set('port', (process.env.PORT || 5000));
+http.createServer(app).listen(port);
 
