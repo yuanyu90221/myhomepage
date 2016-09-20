@@ -4,7 +4,8 @@
   "description": "my first module with hbs",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "start": "node app.js"
   },
   "keywords": [
     "hbs",
@@ -30,4 +31,8 @@
     "url": "https://github.com/yuanyu90221/myhomepage/issues"
   },
   "homepage": "https://github.com/yuanyu90221/myhomepage#readme"
+  ,
+  "engines": {
+    "node": "4.4.7"
+  }
 }
