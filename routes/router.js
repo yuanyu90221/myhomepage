@@ -35,9 +35,14 @@ module.exports = function(app){
 	});
 
 	app.post('/test/',function(req, res){
-		console.log(req.body.try);
+		//console.log(req.body.try);
 		// console.log("snum : " , req.params.snum);
-		res.send(req.body.try);
+		//res.send(req.body.try);
+		loginInfo.queryAll(function(docs,db){
+			db.close();
+			console.log(docs);
+			res.json(docs);
+		});
 	});
 
 	app.post('/logout',function(req, res){
