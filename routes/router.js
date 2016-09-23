@@ -34,6 +34,12 @@ module.exports = function(app){
 		res.render('hello',{"user": req.params.who});
 	});
 
+	app.post('/test/',function(req, res){
+		console.log(req.body.try);
+		// console.log("snum : " , req.params.snum);
+		res.send(req.body.try);
+	});
+
 	app.post('/logout',function(req, res){
 		console.log(req.body.username + ' logoout success!');
 		// 刪除 cookie

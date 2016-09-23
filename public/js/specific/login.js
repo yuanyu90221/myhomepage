@@ -4,6 +4,7 @@ $(document).ready(function(){
 		check.preventDefault();
 		doPostForm();
 	});
+
 });
 
 function doPostForm(){
@@ -29,3 +30,4 @@ function doPostForm(){
 		}
 	});
 }
+
