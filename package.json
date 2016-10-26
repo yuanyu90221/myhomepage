@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "start": "node app.js",
-     "web": "node index.js"
+    "start": "node app.js",
+    "web": "node app.js",
+    "dev": "nodejs-dashboard -- node -r nodejs-dashboard app.js"
   },
   "keywords": [
     "hbs",
@@ -19,8 +20,10 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
+    "googleapis": "^14.1.0",
     "hbs": "^4.0.0",
     "mongodb": "^2.2.9",
+    "nodejs-dashboard": "^0.1.2",
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {},
@@ -31,8 +34,7 @@
   "bugs": {
     "url": "https://github.com/yuanyu90221/myhomepage/issues"
   },
-  "homepage": "https://github.com/yuanyu90221/myhomepage#readme"
-  ,
+  "homepage": "https://github.com/yuanyu90221/myhomepage#readme",
   "engines": {
     "node": "4.4.7"
   }

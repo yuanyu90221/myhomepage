@@ -69,7 +69,7 @@ module.exports = function(app){
 		});
 
 	});
-	app.all('*', function(req, res){
- 		res.send('404 not found');
-	});
+	// app.all('*', function(req, res){
+ // 		res.send('404 not found');
+	// });
 };

@@ -7,8 +7,18 @@ $(document).ready(function(){
 	$("#sendData").click(function(){
 		doTest();
 	});
+	hideIcon();
 });
-
+function hideIcon(){
+	var src =$("#userImage")[0].src;
+	console.log(src);
+	if(src.includes('.jpg')){
+		$("#userIcon").css('display','none');
+	}
+	else{
+		$("#userImage").css('display','none');
+	}
+}
 function doLogout(){
 	console.log("doLogout");
 	var userName = $("#userEdit_nav").text();
