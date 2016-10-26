@@ -18,6 +18,7 @@ var bodyParser = require('body-parser');
 var expressSession = require('express-session');
 var cookieParser = require('cookie-parser');
 var router;
+var sessionList = [];
 //app.use(express.static(path.join(__dirname,'/public')));
 // uncomment after placing your favicon in /public
 // 必須比expressSession早
@@ -31,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, '/public/view'));
 app.set('view engine','html');
 app.engine('html', hbs.__express);
-router = require('./routes/router')(app);
+router = require('./routes/router')(app, sessionList);
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
@@ -113,6 +114,7 @@ app.get("/oauthCallback", function (req, res) {
         //res.send('<h3>Login successful!!</h3>'+'<a href="/details">Go to details page</a>');
       }
       else{
+        req.session.destroy();
         res.redirect("/");
       }
     });
@@ -132,10 +134,13 @@ app.get("/details", function (req, res) {
                 // res.send('<img src="'+response.image.url.replace('sz=50','sz=200')+'" style="border-radius:50%;"/>'+'<h3>Hello "'+response.displayName+'"</h3>');
                 req.session.username = response.name.familyName;
                 req.session.url = response.image.url.replace('sz=50','sz=20');
+                req.session.id = sessionList.length;
+                sessionList.push(req.session);
                 res.redirect('/');
             }
             else{
-                 res.redirect('/');
+                req.session.destroy();
+                res.redirect('/');
             }
 
         });

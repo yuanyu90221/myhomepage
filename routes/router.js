@@ -1,12 +1,14 @@
 // routes/router.js
 var loginInfo = require('../modules/mondbUtil/loginInfo');
 
-module.exports = function(app){
+module.exports = function(app, sessionList){
 
 	var middleware = require('../middleware/middleware')(app);
 	app.get('/', function(req, res){
         //印出session value
 		console.log('current session: ',req.session);
+		console.log('sessionList');
+		console.log(sessionList.length);
 		//藉由
 		if(req.session.username){
 			console.log(req.session.username);
@@ -25,6 +27,8 @@ module.exports = function(app){
 	app.post('/greeting', function(req, res){
 		console.log('username : ',req.body.username);
 		req.session.username = req.body.username;
+		req.session.id = sessionList.length;
+		sessionList.push(req.session);
 		// 重新導入/藉由session來判斷是否有登入
 		res.redirect('/');
 	});
@@ -48,7 +52,11 @@ module.exports = function(app){
 	app.post('/logout',function(req, res){
 		console.log(req.body.username + ' logoout success!');
 		// 刪除 cookie
+		var key = req.session.username;
+		sessionList.splice(Number(req.session.id),1);
+		//console.log(sessionList[key]);
 		req.session.destroy();
+
 		// 重新導入/藉由session來判斷是否有登入
 		res.redirect('/');
 	});
