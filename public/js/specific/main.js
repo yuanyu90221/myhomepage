@@ -4,9 +4,9 @@ $(document).ready(function(){
 	$("#logout_nav").click(function(){
 		doLogout();
 	});
-	$("#sendData").click(function(){
-		doTest();
-	});
+	// $("#sendData").click(function(){
+	// 	doTest();
+	// });
 	hideIcon();
 });
 function hideIcon(){
