@@ -149,3 +149,7 @@ app.get("/googleauth", function (req, res) {
     //
     res.redirect(url);
 });
+
+app.all('*', function(req, res){
+     res.send('404 not found');
+});
