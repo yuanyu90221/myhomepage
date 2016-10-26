@@ -1,7 +1,7 @@
 // main server controller
 var ClientId = '325329452020-f1lhf0g3p0lf17vl338tc7ua2upubkf3.apps.googleusercontent.com';
 var ClientSecret = 'M3qupbLX3FwyBp7ADgUnhpFi';
-var herokuHost = 'https://vast-cove-31986.herokuapp.com/';
+var herokuHost = 'https://vast-cove-31986.herokuapp.com';
 var isHeroku = true;
 // step1 new a express module
 var express = require('express');
