@@ -34,16 +34,16 @@ module.exports = function(app){
 		res.render('hello',{"user": req.params.who});
 	});
 
-	app.post('/test/',function(req, res){
-		//console.log(req.body.try);
-		// console.log("snum : " , req.params.snum);
-		//res.send(req.body.try);
-		loginInfo.queryAll(function(docs,db){
-			db.close();
-			console.log(docs);
-			res.json(docs);
-		});
-	});
+	// app.post('/test/',function(req, res){
+	// 	//console.log(req.body.try);
+	// 	// console.log("snum : " , req.params.snum);
+	// 	//res.send(req.body.try);
+	// 	loginInfo.queryAll(function(docs,db){
+	// 		db.close();
+	// 		console.log(docs);
+	// 		res.json(docs);
+	// 	});
+	// });
 
 	app.post('/logout',function(req, res){
 		console.log(req.body.username + ' logoout success!');
@@ -61,14 +61,14 @@ module.exports = function(app){
 		res.send('admin page');
 	});
 
-	app.get('/getloginInfo', function(req, res){
-		loginInfo.queryAll(function(docs,db){
-			db.close();
-			console.log(docs);
-			res.json(docs);
-		});
+	// app.get('/getloginInfo', function(req, res){
+	// 	loginInfo.queryAll(function(docs,db){
+	// 		db.close();
+	// 		console.log(docs);
+	// 		res.json(docs);
+	// 	});
 
-	});
+	// });
 	// app.all('*', function(req, res){
  // 		res.send('404 not found');
 	// });

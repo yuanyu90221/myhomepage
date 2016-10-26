@@ -46,20 +46,20 @@ function doLogout(){
 	});
 }
 
-function doTest(){
-	var inputDt = $("#myinput").val();
-	$.ajax({
-		url:'/test',
-		type: 'post',
-		data: {'try':inputDt},
-		success: function(data){
-			alert(data);
-			console.log(data);
-		},
-		error: function(xhr, ajaxOptions, thrownError){
-			 //$('#myPleaseWait').modal('hide');
-			console.log(xhr.status);
-			console.log(thrownError);
-		}
-	});
-}
+// function doTest(){
+// 	var inputDt = $("#myinput").val();
+// 	$.ajax({
+// 		url:'/test',
+// 		type: 'post',
+// 		data: {'try':inputDt},
+// 		success: function(data){
+// 			alert(data);
+// 			console.log(data);
+// 		},
+// 		error: function(xhr, ajaxOptions, thrownError){
+// 			 //$('#myPleaseWait').modal('hide');
+// 			console.log(xhr.status);
+// 			console.log(thrownError);
+// 		}
+// 	});
+// }
