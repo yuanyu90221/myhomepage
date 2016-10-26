@@ -132,7 +132,7 @@ app.get("/details", function (req, res) {
                 // res.send('<img src="'+response.image.url.replace('sz=50','sz=200')+'" style="border-radius:50%;"/>'+'<h3>Hello "'+response.displayName+'"</h3>');
                 req.session.username = response.name.familyName;
                 req.session.url = response.image.url.replace('sz=50','sz=20');
-                res.render('main',{'username':req.session.username,'url':req.session.url});
+                res.redirect('/');
             }
             else{
                  res.redirect('/');

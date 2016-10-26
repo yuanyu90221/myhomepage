@@ -10,7 +10,7 @@ module.exports = function(app){
 		//藉由
 		if(req.session.username){
 			console.log(req.session.username);
-			res.render('main',{'username':req.session.username});
+			res.render('main',{'username':req.session.username,'url': req.session.url});
 		}
 		else{
 			res.render('login');
