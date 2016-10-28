@@ -3,5 +3,7 @@
 	"login": "login",
 	"google-login":"google login",
 	"email-hint": "Email address",
-	"password-hint": "Password"
+	"password-hint": "Password",
+	"forget-password":"forget password?",
+	"remember-me":"Remember me?"
 }

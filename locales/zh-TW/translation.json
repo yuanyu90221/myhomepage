@@ -3,5 +3,7 @@
 	"login": "登入",
 	"google-login":"google登入",
 	"email-hint": "請輸入信箱",
-	"password-hint": "密碼"
+	"password-hint": "密碼",
+	"forget-password":"忘記密碼?",
+	"remember-me":"記住我的選項?"
 }
