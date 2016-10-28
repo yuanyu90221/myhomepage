@@ -18,7 +18,7 @@ module.exports = function(app, sessionList, i18n){
 			res.render('main',{'username':req.session.username,'url': req.session.url,'login':i18n.t("login")});
 		}
 		else{
-			res.render('login', {'login':i18n.t("login"), 'google-login': i18n.t('google-login')});
+			res.render('login', {'login':i18n.t("login"), 'google-login': i18n.t('google-login'), 'email-hint':i18n.t('email-hint'), 'password-hint':i18n.t('password-hint')});
 		}
 	});
 	//帶入params.who
