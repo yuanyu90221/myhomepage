@@ -17,10 +17,24 @@ var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var expressSession = require('express-session');
 var cookieParser = require('cookie-parser');
+var i18next = require('i18next');
+var i18nFsBackend = require('i18next-node-fs-backend');
+var i18nMiddleware = require('i18next-express-middleware');
 var router;
 var sessionList = [];
 //app.use(express.static(path.join(__dirname,'/public')));
 // uncomment after placing your favicon in /public
+i18next.use(i18nMiddleware.LanguageDetector)
+    .use(i18nFsBackend)
+    .init({
+        fallbackLng: 'en',
+        backend: {
+            loadPath: "locales/{{lng}}/translation.json",
+        }
+    });
+app.use(i18nMiddleware.handle(i18next,{
+
+}));
 // 必須比expressSession早
 app.use(cookieParser());
 app.use(expressSession({secret:'myhomepage',  name : 'sessionId',resave: true, saveUninitialized: true }));
@@ -32,7 +46,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, '/public/view'));
 app.set('view engine','html');
 app.engine('html', hbs.__express);
-router = require('./routes/router')(app, sessionList);
+router = require('./routes/router')(app, sessionList, i18next);
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 

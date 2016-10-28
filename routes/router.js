@@ -1,7 +1,7 @@
 // routes/router.js
 var loginInfo = require('../modules/mondbUtil/loginInfo');
 
-module.exports = function(app, sessionList){
+module.exports = function(app, sessionList, i18n){
 
 	var middleware = require('../middleware/middleware')(app);
 	app.get('/', function(req, res){
@@ -9,19 +9,22 @@ module.exports = function(app, sessionList){
 		console.log('current session: ',req.session);
 		console.log('sessionList');
 		console.log(sessionList.length);
+		console.log(req.language);
+		console.log(i18n.t('login'));
+		//console.log(i18n);
 		//藉由
 		if(req.session.username){
 			console.log(req.session.username);
-			res.render('main',{'username':req.session.username,'url': req.session.url});
+			res.render('main',{'username':req.session.username,'url': req.session.url,'login':i18n.t("login")});
 		}
 		else{
-			res.render('login');
+			res.render('login', {'login':i18n.t("login"), 'google-login': i18n.t('google-login')});
 		}
 	});
 	//帶入params.who
 	app.get('/greeting/:who', function(req, res){
 		// req.params.who帶入hello.html
-		res.render('hello',{"user": req.params.who});
+		res.render('hello',{"user": req.params.who,'i18n':i18n});
 	});
 
 	app.post('/greeting', function(req, res){
@@ -35,7 +38,7 @@ module.exports = function(app, sessionList){
 
 
 	app.post('/greeting/:who', function(req, res){
-		res.render('hello',{"user": req.params.who});
+		res.render('hello',{"user": req.params.who, 'i18n':i18n});
 	});
 
 	// app.post('/test/',function(req, res){
