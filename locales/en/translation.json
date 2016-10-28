@@ -1,5 +1,7 @@
 {
 	"lang": "English",
 	"login": "login",
-	"google-login":"google login"
+	"google-login":"google login",
+	"email-hint": "Email address",
+	"password-hint": "Password"
 }

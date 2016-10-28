@@ -1,5 +1,7 @@
 {
 	"lang": "中文",
 	"login": "登入",
-	"google-login":"google登入"
+	"google-login":"google登入",
+	"email-hint": "請輸入信箱",
+	"password-hint": "密碼"
 }
