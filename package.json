@@ -20,7 +20,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
-    "googleapis": "^14.1.0",
+    "googleapis": "^59.0.0",
     "hbs": "^4.0.0",
     "i18next": "^3.4.4",
     "i18next-express-middleware": "^1.0.2",
